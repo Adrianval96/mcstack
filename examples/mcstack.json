@@ -1,0 +1,9 @@
+{
+  "branchPattern": "^(fix|add|change|refactor|chore)/[a-z0-9-]+$",
+  "forbiddenCommands": [
+    {
+      "pattern": "vitest.*--environment=node",
+      "message": "--environment=node breaks the component tests. Run the project's agreed test command instead."
+    }
+  ]
+}

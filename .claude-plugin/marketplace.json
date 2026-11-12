@@ -1,0 +1,13 @@
+{
+  "name": "mcstack",
+  "owner": {
+    "name": "Adrianval96"
+  },
+  "plugins": [
+    {
+      "name": "mcstack",
+      "source": "./",
+      "description": "Role-based development workflow: conversation roles as skills, execution roles as subagents, two human gates, and guard hooks."
+    }
+  ]
+}
