@@ -39,6 +39,32 @@ Product, Planner and Designer are conversations, so they never run as subagents.
 
 There are two human gates: slice approval and merge. Everything between them runs unattended.
 
+## Use it in every session
+
+Local: the install above, once per machine.
+
+Cloud sessions start from a fresh container. To have the plugin there, declare it in the repo's `.claude/settings.json` so it installs automatically:
+
+```json
+{
+  "extraKnownMarketplaces": {
+    "mcstack": { "source": { "source": "github", "repo": "Adrianval96/mcstack" } }
+  },
+  "enabledPlugins": { "mcstack@mcstack": true }
+}
+```
+
+## Updating
+
+An install is a copy of the plugin, cached under its `version` and pinned to a git commit. Edits on GitHub don't reach an existing install by themselves.
+
+1. Change the plugin and bump `version` in `.claude-plugin/plugin.json`.
+2. Push to `main`.
+3. On each machine, run `claude plugin marketplace update mcstack`, then `claude plugin update mcstack@mcstack`. Or turn on auto-update for the `mcstack` marketplace in `/plugin` → Marketplaces.
+4. Start a new session. Running sessions keep the version they started with.
+
+Cloud sessions that declare the plugin in `.claude/settings.json` install it fresh, so they always get the latest `main`.
+
 ## Guard hooks
 
 `hooks/guard.py` runs before every Bash call and every GitHub MCP tool call.

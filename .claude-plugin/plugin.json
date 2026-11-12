@@ -1,6 +1,6 @@
 {
   "name": "mcstack",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Role-based development workflow for Claude Code: product, planning and design as main-session modes, an orchestrator that runs developer, reviewer and tester subagents between two human gates, and guard hooks that enforce the rules instead of restating them.",
   "author": {
     "name": "Adrianval96"
