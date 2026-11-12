@@ -60,7 +60,7 @@ An install is a copy of the plugin, cached under its `version` and pinned to a g
 
 1. Change the plugin and bump `version` in `.claude-plugin/plugin.json`.
 2. Push to `main`.
-3. On each machine, run `claude plugin marketplace update mcstack`, then `claude plugin update mcstack@mcstack`. Or turn on auto-update for the `mcstack` marketplace in `/plugin` → Marketplaces.
+3. On each machine, run `claude plugin update mcstack@mcstack`. It refreshes the marketplace first. Or turn on auto-update for the `mcstack` marketplace in `/plugin` → Marketplaces.
 4. Start a new session. Running sessions keep the version they started with.
 
 Cloud sessions that declare the plugin in `.claude/settings.json` install it fresh, so they always get the latest `main`.
