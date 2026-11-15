@@ -26,6 +26,12 @@ One epic from `/mcstack:lead`, a `build` verdict from `/mcstack:product`, or a d
 
 Two levels only: epic, then slice. If a slice needs sub-slices, the epic is scoped wrong. Say so and reshape it.
 
-## Output
+## Output: the slice plan
 
-The approved slices, each filled in from the template, plus the DAG. Each approved slice is ready to hand to `/mcstack:orchestrate`. Put nothing in the plan that the user hasn't approved.
+- **Epic:** one line, and the Lead assessment or product brief it came from, if any.
+- **Starting state:** what you verified, with files and PRs.
+- **Slices:** each approved slice, filled in from `references/slice-template.md`, including the exact contracts it owns.
+- **DAG:** the mermaid graph.
+- **Open questions:** for the user, including any contract change to take back to Lead.
+
+Put nothing in the plan that the user hasn't approved. Each approved slice is ready to hand to `/mcstack:orchestrate`.

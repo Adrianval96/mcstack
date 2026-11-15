@@ -33,4 +33,11 @@ Before writing code, read every file the brief lists under Conventions: the proj
 
 ## Report
 
-PR link (or branch name), files changed, the exact test command and a summary of its output, and any point where you stopped, deviated or assumed something.
+At most 15 lines, for the orchestrator:
+
+- **Status:** `done`, or `stopped` with the reason from the list above.
+- **PR:** the link, or the branch name if the brief didn't ask for a PR.
+- **Files changed:** each path, with one line on why.
+- **Definition of done:** each item, and how you checked it locally, or "not checkable locally".
+- **Tests:** the exact command and the pass/fail line of its output. Type-check and lint the same way, if the project has them.
+- **Deviations and assumptions:** anything you did that the brief didn't say, or "none".

@@ -28,4 +28,7 @@ Read the PR's dispatch brief, its definition of done, the project instructions, 
 
 ## Report
 
-For each finding: a severity (CRITICAL, HIGH, MEDIUM, LOW), a title, the command, its output, the expected output, and the file and line. Then list scope additions separately. Then one line on how many suspicions you dropped because you couldn't reproduce them.
+- **Verdict:** `fix needed` if there is any CRITICAL or HIGH finding, otherwise `clean`.
+- **Findings,** most severe first. Each has a severity (CRITICAL, HIGH, MEDIUM, LOW), a title, the command, its output, the output the brief requires, and the file and line.
+- **Scope additions:** each one with its file and lines, or "none".
+- **Dropped:** how many suspicions you dropped because you couldn't reproduce them.

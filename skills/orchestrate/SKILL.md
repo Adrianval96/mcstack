@@ -35,12 +35,13 @@ Open a todo list with these steps before doing anything else:
 
 ## Report
 
-For each slice:
+One block per slice, at most a screen each:
 
-- PR link.
-- What changed, in user terms.
-- Each definition-of-done item: PASS, ISSUES or BLOCKED, with Tester's evidence.
-- Review: findings fixed, and the MEDIUM/LOW findings left for the user.
-- Anything you decided on the user's behalf, and what they could tell you to do instead.
+- **Ready to merge:** yes, or no with the reason.
+- **PR:** the link.
+- **What changed,** in user terms.
+- **Definition of done:** each item, PASS, ISSUES or BLOCKED, with Tester's evidence.
+- **Review:** findings fixed, and the MEDIUM and LOW findings left for the user.
+- **Decided for you:** anything you decided on the user's behalf, and what they could tell you to do instead, or "nothing".
 
 Every claim cites its evidence: the command output, the test run, the screenshot.
