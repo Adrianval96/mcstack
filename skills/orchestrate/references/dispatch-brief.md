@@ -24,6 +24,7 @@ The brief must stand on its own. The subagent hasn't seen this conversation.
 ## Conventions
 - Project instructions: <path to the repo's CLAUDE.md or AGENTS.md>
 - Rules: <absolute paths to rules/delivery.md and rules/testing.md>
+- Project guidelines: <every path under `guidelines` in the project's `.claude/mcstack.json`, with `~` expanded, or "none">
 - Branch: <name matching the project's branch convention>
 - Test command: <the project's agreed command, exactly>
 

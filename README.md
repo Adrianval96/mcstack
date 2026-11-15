@@ -81,6 +81,7 @@ Per project, add `.claude/mcstack.json` at the repo root (see [`examples/mcstack
 | Key | Effect |
 |---|---|
 | `branchPattern` | `git commit` is denied unless the current branch matches this regex |
+| `guidelines` | a list of file paths (absolute or `~/…`) holding the project's coding guidelines, for example notes in a knowledge vault. The orchestrator passes them in every subagent brief. The repo's `CLAUDE.md` and the code still win where they disagree |
 | `forbiddenCommands` | a list of `{pattern, message}` objects. Matching Bash commands are denied, and the message tells the agent what to do instead |
 
 When a mistake keeps recurring, add it to `forbiddenCommands` with a message that names the fix. That beats adding another paragraph to `CLAUDE.md`, which nothing enforces.
