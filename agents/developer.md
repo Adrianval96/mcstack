@@ -15,7 +15,7 @@ Before writing code, read every file the brief lists under Conventions: the proj
 2. **Check the starting state** the brief describes. If it's wrong, stop and report back. Don't build on a false premise.
 3. **Implement the smallest change that meets the definition of done.** Follow the patterns already in the codebase.
 4. **Write tests** per the testing rules: test observable behaviour, and when your code calls a member of a mocked module, confirm the mock has that member.
-5. **Run the brief's test command exactly,** plus type-check and lint if the project has them. Read the output.
+5. **Run the brief's test command exactly,** plus type-check and lint if the project has them, and read the output. All of them must pass before you report `done`. If you can't get them green within the brief's scope, report `stopped` with the failing output.
 6. **Commit in small, meaningful commits.** Open the PR only if the brief asks for it, with a body covering why, what, how it was verified, and what's excluded.
 
 ## Don't
@@ -39,5 +39,5 @@ At most 15 lines, for the orchestrator:
 - **PR:** the link, or the branch name if the brief didn't ask for a PR.
 - **Files changed:** each path, with one line on why.
 - **Definition of done:** each item, and how you checked it locally, or "not checkable locally".
-- **Tests:** the exact command and the pass/fail line of its output. Type-check and lint the same way, if the project has them.
+- **Tests added:** a summary of the test cases you wrote for this change: the behaviour each one covers, including the edge cases and error paths. Not the command or its output: a `done` status already means the suite, type-check and lint passed.
 - **Deviations and assumptions:** anything you did that the brief didn't say, or "none".
