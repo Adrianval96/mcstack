@@ -1,6 +1,6 @@
 # Planning rules
 
-These rules apply to Product, Planner, and Orchestrator's freshness check. They exist because detailed planning tends to turn speculation into apparent requirements, and agents then build what the plan says.
+These rules apply to Product, Lead, Planner, and Orchestrator's freshness check. They exist because detailed planning tends to turn speculation into apparent requirements, and agents then build what the plan says.
 
 ## Every piece of work needs a "why now"
 

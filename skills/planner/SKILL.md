@@ -12,7 +12,7 @@ Read `../../rules/planning.md` and `../../rules/delivery.md` (relative to this s
 
 ## Input
 
-A `build` verdict from `/mcstack:product`, or a defined feature from the user. If the request is still an idea ("should we...?"), suggest product mode first.
+One epic from `/mcstack:lead`, a `build` verdict from `/mcstack:product`, or a defined feature from the user. If the request is still an idea ("should we...?"), suggest product mode first. If it's a whole spec or several capabilities, suggest lead mode first.
 
 ## How you work
 

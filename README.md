@@ -18,6 +18,7 @@ Plugin skills are namespaced, so the skills below are invoked as `/mcstack:<name
 | Role | Runs as | Model | What it does |
 |---|---|---|---|
 | Product | skill `/mcstack:product` | your session model | Decides whether to build something at all. Makes the case against the idea first; "not now" is a valid answer |
+| Lead | skill `/mcstack:lead` | your session model | Reads the spec and the code, says where the project stands, what's left and what's feasible, and breaks the remaining work into epics |
 | Planner | skill `/mcstack:planner` | your session model | Turns an approved feature into vertical slices, each with a why-now and an observable definition of done. You approve each slice |
 | Designer | skill `/mcstack:designer` | your session model | Mockups and UX ideas. Marks every contestable choice as a fork, with the case for the alternative |
 | Orchestrator | skill `/mcstack:orchestrate` | your session model | Takes approved slices to PRs that are ready to merge, using the subagents below |
@@ -27,12 +28,12 @@ Plugin skills are namespaced, so the skills below are invoked as `/mcstack:<name
 | Security reviewer | agent `mcstack:security-reviewer` | Opus | Covers auth, webhooks, injection, secrets and payments, with demonstrated findings only |
 | Tester | agent `mcstack:tester` | Sonnet | Checks the deployed preview against the definition of done, and runs the Playwright suite for money paths |
 
-Product, Planner and Designer are conversations, so they never run as subagents. A subagent can't ask you a question, so it fills gaps with assumptions, and a plan built on assumptions looks just as settled as a real one.
+Product, Lead, Planner and Designer are conversations, so they never run as subagents. A subagent can't ask you a question, so it fills gaps with assumptions, and a plan built on assumptions looks just as settled as a real one.
 
 ## The feature workflow
 
 ```
-/mcstack:product  →  /mcstack:planner  →  you approve a slice
+/mcstack:product  →  /mcstack:lead  →  /mcstack:planner  →  you approve a slice
         →  /mcstack:orchestrate: developer → reviewer + security-reviewer → tester
         →  you merge
 ```
