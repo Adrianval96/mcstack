@@ -10,7 +10,7 @@ These rules apply to Orchestrator, Developer, Debugger, Reviewer and Tester.
 
 ## Project guidelines
 
-A project can list its coding guidelines under `guidelines` in `.claude/mcstack.json`, and the brief passes them on. Read every one before writing code. They rank below the project instructions and the code: where a guideline disagrees with the repo's `CLAUDE.md` or with what the code consistently does, follow the repo and report the conflict. If a listed file doesn't exist on this machine, say so in your report and carry on.
+The brief's Project guidelines section holds the coding rules the orchestrator gathered from the user's guideline files or notes. Follow them. They rank below the project instructions and the code: where a guideline disagrees with the repo's `CLAUDE.md` or with what the code consistently does, follow the repo and report the conflict.
 
 ## Git
 

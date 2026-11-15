@@ -1,9 +1,5 @@
 {
   "branchPattern": "^(fix|add|change|refactor|chore)/[a-z0-9-]+$",
-  "guidelines": [
-    "~/notes/dev/rules/coding-style.md",
-    "~/notes/dev/rules/testing.md"
-  ],
   "forbiddenCommands": [
     {
       "pattern": "vitest.*--environment=node",

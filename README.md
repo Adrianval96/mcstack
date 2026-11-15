@@ -38,7 +38,9 @@ Product, Lead, Planner and Designer are conversations, so they never run as suba
         →  you merge
 ```
 
-There are two human gates: slice approval and merge. Everything between them runs unattended.
+There are two human gates: slice approval and merge.
+
+Tell the orchestrator where your coding guidelines live: files to load, or a lookup skill to run (a notes-vault reader, say). It gathers them once per run and puts the rules that apply into every subagent brief, so nothing machine-specific goes in the repo. Everything between them runs unattended.
 
 ## Use it in every session
 
@@ -81,7 +83,6 @@ Per project, add `.claude/mcstack.json` at the repo root (see [`examples/mcstack
 | Key | Effect |
 |---|---|
 | `branchPattern` | `git commit` is denied unless the current branch matches this regex |
-| `guidelines` | a list of file paths (absolute or `~/…`) holding the project's coding guidelines, for example notes in a knowledge vault. The orchestrator passes them in every subagent brief. The repo's `CLAUDE.md` and the code still win where they disagree |
 | `forbiddenCommands` | a list of `{pattern, message}` objects. Matching Bash commands are denied, and the message tells the agent what to do instead |
 
 When a mistake keeps recurring, add it to `forbiddenCommands` with a message that names the fix. That beats adding another paragraph to `CLAUDE.md`, which nothing enforces.

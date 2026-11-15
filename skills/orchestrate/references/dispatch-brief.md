@@ -24,9 +24,11 @@ The brief must stand on its own. The subagent hasn't seen this conversation.
 ## Conventions
 - Project instructions: <path to the repo's CLAUDE.md or AGENTS.md>
 - Rules: <absolute paths to rules/delivery.md and rules/testing.md>
-- Project guidelines: <every path under `guidelines` in the project's `.claude/mcstack.json`, with `~` expanded, or "none">
 - Branch: <name matching the project's branch convention>
 - Test command: <the project's agreed command, exactly>
+
+## Project guidelines
+<the rules from step 2 that apply to this slice, quoted as written, each with the note or file it came from. Or "none: follow the repo's CLAUDE.md">
 
 ## Prior rounds
 <for a fix round: the earlier briefs, every directive since, and the previous report. Otherwise "none">
