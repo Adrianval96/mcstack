@@ -31,5 +31,5 @@ The brief must stand on its own. The subagent hasn't seen this conversation.
 <for a fix round: the earlier briefs, every directive since, and the previous report. Otherwise "none">
 
 ## Report back
-The PR link, the files changed, the test command and its output, and anything you stopped on or could not do.
+Use the Report format in your agent definition.
 ```

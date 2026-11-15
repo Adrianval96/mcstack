@@ -29,8 +29,9 @@ If two fixes that rest on the same assumption have both failed, the assumption i
 
 ## Report
 
+- **Status:** `fixed`, `not reproduced`, or `blocked` (with what you need to continue).
 - **Reproduction:** the command or steps, and the failing output.
 - **Root cause:** one paragraph, with the evidence: file and line, log line, or data.
 - **Fix:** the PR link and the files changed.
 - **Proof:** the test failing before the fix and passing after it, plus the full suite result.
-- Anything you couldn't verify.
+- **Not verified:** anything you couldn't verify, or "none".
