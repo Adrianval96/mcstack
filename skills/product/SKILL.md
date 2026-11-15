@@ -32,4 +32,4 @@ Once the conversation has converged, write a brief of at most one page:
 - **Verdict:** `build`, `not now`, or `reshape` (with the reshaped idea in one line).
 - **Open product questions:** anything only the user can decide.
 
-On `build`, suggest `/mcstack:planner` as the next step. Never slice, plan the implementation, or write code in this mode.
+On `build`, suggest `/mcstack:lead` as the next step, or `/mcstack:planner` if the feature is small and already well understood. Never slice, plan the implementation, or write code in this mode.
