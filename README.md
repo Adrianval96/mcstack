@@ -38,7 +38,9 @@ Product, Lead, Planner and Designer are conversations, so they never run as suba
         →  you merge
 ```
 
-There are two human gates: slice approval and merge. Everything between them runs unattended.
+There are two human gates: slice approval and merge.
+
+Tell the orchestrator where your coding guidelines live: files to load, or a lookup skill to run (a notes-vault reader, say). It gathers them once per run and puts the rules that apply into every subagent brief, so nothing machine-specific goes in the repo. Everything between them runs unattended.
 
 ## Use it in every session
 

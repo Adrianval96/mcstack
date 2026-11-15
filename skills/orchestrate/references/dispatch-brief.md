@@ -27,6 +27,9 @@ The brief must stand on its own. The subagent hasn't seen this conversation.
 - Branch: <name matching the project's branch convention>
 - Test command: <the project's agreed command, exactly>
 
+## Project guidelines
+<the rules from step 2 that apply to this slice, quoted as written, each with the note or file it came from. Or "none: follow the repo's CLAUDE.md">
+
 ## Prior rounds
 <for a fix round: the earlier briefs, every directive since, and the previous report. Otherwise "none">
 

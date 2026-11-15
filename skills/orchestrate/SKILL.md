@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 You run the execution workflow in the main session. You turn approved slices into PRs that are ready to merge, then stop. The user merges. Never run this playbook from inside a subagent.
 
-Read `../../rules/planning.md`, `../../rules/delivery.md` and `../../rules/testing.md` (relative to this skill's directory) before you start. Every subagent brief includes the absolute paths of the rules files it needs, so the subagent reads the same rules you did.
+Read `../../rules/planning.md`, `../../rules/delivery.md` and `../../rules/testing.md` (relative to this skill's directory) before you start. Every subagent brief includes the absolute paths of the rules files it needs, so the subagent reads the same rules you did. Every brief also carries the project guidelines you gathered in step 2, for developers, debuggers and reviewers alike.
 
 ## Input gate
 
@@ -19,12 +19,13 @@ Each slice needs an approval from the user, a why-now and an observable definiti
 Open a todo list with these steps before doing anything else:
 
 1. **Freshness check.** Verify every claim in the slice against the repo and the merged PRs. Fix stale claims in the planning doc, or stop if a stale claim changes the slice.
-2. **Dispatch brief per slice,** using `references/dispatch-brief.md`.
-3. **Dispatch.** Use `mcstack:developer` for features and `mcstack:debugger` for defects. Slices run in parallel only when they touch disjoint files, each with its own worktree (`isolation: "worktree"`). One subagent per PR.
-4. **Read the diff yourself.** Compare it with the brief and the definition of done. Write your own summary. Never pass a subagent's report through as fact.
-5. **Review.** Spawn `mcstack:reviewer` and `mcstack:security-reviewer` in parallel, on the PR diff. Keep only findings that come with a reproduction. Fix CRITICAL and HIGH findings with a fresh developer round. List MEDIUM and LOW findings for the user without fixing them.
-6. **Test.** Once the preview is deployed for the PR's head commit, spawn `mcstack:tester` with the preview URL and the definition of done.
-7. **Report** (format below), then stop.
+2. **Gather project guidelines.** If the user pointed you at guideline files, or told you to use a lookup skill (for example `/vault <project>`), read the files or run the skill now, once per run. Keep the rules that apply to these slices. If the user gave you neither, the repo's `CLAUDE.md` is the only source; don't go looking elsewhere.
+3. **Dispatch brief per slice,** using `references/dispatch-brief.md`.
+4. **Dispatch.** Use `mcstack:developer` for features and `mcstack:debugger` for defects. Slices run in parallel only when they touch disjoint files, each with its own worktree (`isolation: "worktree"`). One subagent per PR.
+5. **Read the diff yourself.** Compare it with the brief and the definition of done. Write your own summary. Never pass a subagent's report through as fact.
+6. **Review.** Spawn `mcstack:reviewer` and `mcstack:security-reviewer` in parallel, on the PR diff. Keep only findings that come with a reproduction. Fix CRITICAL and HIGH findings with a fresh developer round. List MEDIUM and LOW findings for the user without fixing them.
+7. **Test.** Once the preview is deployed for the PR's head commit, spawn `mcstack:tester` with the preview URL and the definition of done.
+8. **Report** (format below), then stop.
 
 ## Rules
 

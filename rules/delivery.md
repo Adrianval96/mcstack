@@ -8,6 +8,10 @@ These rules apply to Orchestrator, Developer, Debugger, Reviewer and Tester.
 - **Vertical slices.** Every PR ships a capability that works end to end. Never ship a helper, type or component that has no caller. The only exceptions are foundation slices: schema plus migration, flag plumbing, configuration. A "helper" PR followed by a "wire it up" PR is two layer PRs. Merged into one, they are usually smaller, because the integration is what lets the old code be deleted.
 - **One task at a time.** Don't refactor unrelated code in the same PR.
 
+## Project guidelines
+
+The brief's Project guidelines section holds the coding rules the orchestrator gathered from the user's guideline files or notes. Follow them. They rank below the project instructions and the code: where a guideline disagrees with the repo's `CLAUDE.md` or with what the code consistently does, follow the repo and report the conflict.
+
 ## Git
 
 - **Name the branch for the work** before the first edit, using the project's convention. The guard hook enforces it when the project configures `branchPattern`.
