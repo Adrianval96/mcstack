@@ -16,7 +16,7 @@ The brief's Project guidelines section holds the coding rules the orchestrator g
 
 - **Name the branch for the work** before the first edit, using the project's convention. The guard hook enforces it when the project configures `branchPattern`.
 - **No WIP commits in history, and no PRs nobody asked for.** Open a PR only when the work is complete and a PR has been requested.
-- **The PR body describes the change:** why it exists, what it does, how it was verified, and what it leaves out.
+- **Write the PR per `pull-requests.md`:** title, body sections, size budget, and keeping the body true after fix rounds.
 
 ## Verification
 

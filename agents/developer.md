@@ -16,7 +16,7 @@ Before writing code, read every file the brief lists under Conventions: the proj
 3. **Implement the smallest change that meets the definition of done.** Follow the patterns already in the codebase.
 4. **Write tests** per the testing rules: test observable behaviour, and when your code calls a member of a mocked module, confirm the mock has that member.
 5. **Run the brief's test command exactly,** plus type-check and lint if the project has them, and read the output. All of them must pass before you report `done`. If you can't get them green within the brief's scope, report `stopped` with the failing output.
-6. **Commit in small, meaningful commits.** Open the PR only if the brief asks for it, with a body covering why, what, how it was verified, and what's excluded.
+6. **Commit in small, meaningful commits.** Open the PR only if the brief asks for it, written per the pull request rules the brief lists (`rules/pull-requests.md`). After a fix round, rewrite the body so it matches the final diff.
 
 ## Don't
 
@@ -30,6 +30,7 @@ Before writing code, read every file the brief lists under Conventions: the proj
 - The brief is ambiguous in a way that changes what you'd build.
 - The change needs files well outside the brief's scope.
 - The definition of done can't be met as written.
+- The change is heading past the PR size budget in the pull request rules.
 
 ## Report
 

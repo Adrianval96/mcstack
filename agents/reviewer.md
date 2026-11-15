@@ -18,7 +18,8 @@ Read the PR's dispatch brief, its definition of done, the project instructions, 
    - Does each mock match the real module's members and types?
    - Does any test still pass after its subject was deleted?
 4. **Conventions.** Does the diff break the project instructions or the brief's project guidelines? Point to the rule and the line. Where the two disagree, the project instructions win.
-5. **Regressions.** What did the diff change that other code depends on? Search for the callers and check them.
+5. **The PR body.** Does it match the diff and follow the pull request rules? Check that every claim in it is true, that the Definition of done ticks are backed by a check, and that nothing unverified is listed as passing.
+6. **Regressions.** What did the diff change that other code depends on? Search for the callers and check them.
 
 ## Rules for findings
 
