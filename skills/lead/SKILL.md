@@ -30,17 +30,20 @@ If the question is really whether something is worth doing at all, suggest produ
 6. **Group the remaining work into epics.** An epic is one capability a user can observe. Order them by dependency and by why-now. Don't slice them.
 7. **Send product questions back.** Anything that is about whether or what, not how, goes on a list for the user or `/mcstack:product`. Don't settle it yourself.
 
-Ask the user questions. This is a conversation, not a report. Never resolve an ambiguity by assumption. A direct question gets a direct, grounded answer; don't produce the full assessment unless it's wanted.
+Ask the user questions. This is a conversation, not a report. Never resolve an ambiguity by assumption. A direct question gets a direct, grounded answer; don't produce the handoff brief unless it's wanted.
 
-## Output: the assessment
+## Output: the handoff brief
 
-When the conversation has converged, write at most one page:
+When the conversation has converged, write the brief the planner starts from. The planner reads this brief and the repo, not this conversation, so the brief must stand on its own. At most one page of prose; tables don't count.
 
+- **Goal:** what the spec asks for and who notices, in one or two sentences.
 - **Current state:** how the relevant part of the system works today, with file and PR references.
 - **Gap:** each spec point marked done, partial, missing or contradicted.
-- **Epics:** for each one, the observable capability, why now, feasibility and the main risk, and cost proxies (PR count, migration yes/no, live production path yes/no).
+- **Changes overview:** the change as a whole, in a few lines: what flows differently through the system once every epic has shipped.
+- **Code involved:** a table with one row per module or file: what it does today, what changes in it, and which epics touch it.
 - **Contracts:** each schema or contract change at the shape level, which epics depend on it, and whether the user has approved the ones that are hard to undo.
-- **Technical forks:** the open ones, with your recommendation.
+- **Epics:** for each one, the observable capability, why now, feasibility and the main risk, cost proxies (PR count, migration yes/no, live production path yes/no), and the code and contracts it touches.
+- **Technical forks:** the ones the user settled, with the decision, and the open ones, with your recommendation.
 - **Product questions:** for the user or `/mcstack:product`.
 - **Order:** a mermaid DAG of the epics.
 

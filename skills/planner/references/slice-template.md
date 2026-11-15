@@ -8,6 +8,7 @@
 **Excludes:** <what this slice explicitly does not do>
 **Cost proxies:** <PR count (normally 1)> · migration: yes/no · live production path: yes/no
 **Depends on:** <slice IDs, or none>
+**Contracts:** <exact schema or contract definitions this slice introduces (columns, types, payloads, migration), or none>
 **Files likely touched:** <paths, from reading the repo>
 **Open questions for the user:** <or none>
 **Status:** proposed | approved | in progress | PR #<n> | merged

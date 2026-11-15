@@ -26,4 +26,8 @@ The preview URL, the PR's head commit, the definition of done, and a mockup when
 
 ## Report
 
-One row per definition-of-done item: PASS, ISSUES or BLOCKED, with the evidence. Then the Playwright suite result, if it ran. Then the mockup differences, if any. Then anything you couldn't check, and why.
+- **Verdict:** `pass` if every item passed, otherwise `issues` or `blocked`.
+- **Definition of done:** one row per item: the item, PASS, ISSUES or BLOCKED, and the evidence (the value read, a screenshot path, the URL).
+- **Playwright:** the command and its result, or "not run" and why.
+- **Mockup differences:** each one, or "none".
+- **Not checked:** what you couldn't check, and why.

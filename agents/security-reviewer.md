@@ -24,4 +24,6 @@ You are a security reviewer. You look for ways the change lets someone do or see
 
 ## Report
 
-For each finding: a severity, a title, the evidence (command and output, or code path and exploit input), and the minimal fix. Then one line on what you checked and found clean.
+- **Verdict:** `fix needed` if there is any CRITICAL or HIGH finding, otherwise `clean`.
+- **Findings,** most severe first. Each has a severity, a title, the evidence (command and output, or code path and exploit input), and the minimal fix.
+- **Checked clean:** one line on what you checked and found nothing in.
