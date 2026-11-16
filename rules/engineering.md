@@ -19,6 +19,15 @@ Business logic never depends on a framework, a database or a third-party API. De
 - **If the project enforces the layering with a tool** (import-linter, dependency-cruiser, ESLint boundaries), it's part of lint and must pass.
 - **In a codebase that isn't laid out this way,** don't restructure existing code unless the slice asks for it. New business logic still goes in a framework-free module behind a narrow interface, called from the framework's file (a route, a collection hook). Framework configuration stays where the framework expects it. Reviewer flags new business logic written inside an adapter; it doesn't flag the existing layout.
 
+## Dead code
+
+Dead code is anything no running path reaches: unused exports, functions, types, components, files, config keys, env vars, flags stuck on one value, dependencies, and tests of deleted code.
+
+- **Look for it on every change.** Before reporting, check what your change replaced or stopped calling, and the code around it. Use the project's dead-code tool if it has one (knip, ts-prune, vulture, deadcode). Otherwise search for every reference, including string and dynamic lookups.
+- **In scope: delete it in the same PR.** Code your change left unused, or dead code belonging to the capability the slice changes, is part of the slice. Remove it with its tests. Leaving it behind is a Reviewer finding.
+- **Out of scope: report it, don't touch it.** Dead code anywhere else goes in your report, with each search you ran and its output. The orchestrator sends a fresh developer to trace it and open a separate removal PR.
+- **In doubt: flag it to the user.** Don't delete what something outside static search may still reach: public or exported API, routes and webhooks called from outside, CLI commands, cron and queue handlers, migrations, names built from strings or reflection, config read at runtime, a flag that's off but planned. Report what you checked and what you couldn't.
+
 ## Code
 
 - **Reuse before writing.** Search for an existing helper, type or pattern first. Re-implementing one that lives a few files away is a finding.

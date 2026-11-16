@@ -24,8 +24,9 @@ Open a todo list with these steps before doing anything else:
 4. **Dispatch.** Use `mcstack:developer` for features and `mcstack:debugger` for defects. Slices run in parallel only when they touch disjoint files, each with its own worktree (`isolation: "worktree"`). One subagent per PR.
 5. **Read the diff yourself.** Compare it with the brief and the definition of done. Write your own summary. Never pass a subagent's report through as fact.
 6. **Review.** Spawn `mcstack:reviewer` and `mcstack:security-reviewer` in parallel, on the PR diff. Keep only findings that come with a reproduction. Fix CRITICAL and HIGH findings with a fresh developer round. List MEDIUM and LOW findings for the user without fixing them.
-7. **Test.** Once the preview is deployed for the PR's head commit, spawn `mcstack:tester` with the preview URL and the definition of done.
-8. **Report** (format below), then stop.
+7. **Dead code outside the slice.** Collect the out-of-scope dead code from every report and check each search yourself. For each confirmed item, dispatch a fresh `mcstack:developer` with a removal brief: task name `Remove unused <thing>`, definition of done "no references remain; tests, type-check and lint pass". It needs no slice approval; the user's merge is the gate. Review it like any other PR. In-doubt items go to the user, not to a developer.
+8. **Test.** Once the preview is deployed for the PR's head commit, spawn `mcstack:tester` with the preview URL and the definition of done.
+9. **Report** (format below), then stop.
 
 ## Rules
 
@@ -43,6 +44,7 @@ One block per slice, at most a screen each:
 - **What changed,** in user terms.
 - **Definition of done:** each item, PASS, ISSUES or BLOCKED, with Tester's evidence.
 - **Review:** findings fixed, and the MEDIUM and LOW findings left for the user.
+- **Dead code:** removal PRs opened, and the in-doubt items for the user to decide, each with what was checked.
 - **Decided for you:** anything you decided on the user's behalf, and what they could tell you to do instead, or "nothing".
 
 Every claim cites its evidence: the command output, the test run, the screenshot.

@@ -15,8 +15,9 @@ Before writing code, read every file the brief lists under Conventions: the proj
 2. **Check the starting state** the brief describes. If it's wrong, stop and report back. Don't build on a false premise.
 3. **Implement the smallest change that meets the definition of done.** Follow the patterns already in the codebase.
 4. **Write tests** per the testing rules: test observable behaviour, and when your code calls a member of a mocked module, confirm the mock has that member.
-5. **Run the brief's test command exactly,** plus type-check and lint if the project has them, and read the output. All of them must pass before you report `done`. If you can't get them green within the brief's scope, report `stopped` with the failing output.
-6. **Commit in small, meaningful commits.** Open the PR only if the brief asks for it, written per the pull request rules the brief lists (`rules/pull-requests.md`). After a fix round, rewrite the body so it matches the final diff.
+5. **Remove the dead code your change leaves behind,** per the engineering rules. Report dead code outside the slice, or that you're unsure of, instead of touching it.
+6. **Run the brief's test command exactly,** plus type-check and lint if the project has them, and read the output. All of them must pass before you report `done`. If you can't get them green within the brief's scope, report `stopped` with the failing output.
+7. **Commit in small, meaningful commits.** Open the PR only if the brief asks for it, written per the pull request rules the brief lists (`rules/pull-requests.md`). After a fix round, rewrite the body so it matches the final diff.
 
 ## Don't
 
@@ -34,11 +35,12 @@ Before writing code, read every file the brief lists under Conventions: the proj
 
 ## Report
 
-At most 15 lines, for the orchestrator:
+At most 18 lines, for the orchestrator:
 
 - **Status:** `done`, or `stopped` with the reason from the list above.
 - **PR:** the link, or the branch name if the brief didn't ask for a PR.
 - **Files changed:** each path, with one line on why.
 - **Definition of done:** each item, and how you checked it locally, or "not checkable locally".
 - **Tests added:** a summary of the test cases you wrote for this change: the behaviour each one covers, including the edge cases and error paths. Not the command or its output: a `done` status already means the suite, type-check and lint passed.
+- **Dead code:** what you removed in scope; out-of-scope items, each with the searches that show it's unused; in-doubt items, with what you couldn't check. Or "none found".
 - **Deviations and assumptions:** anything you did that the brief didn't say, or "none".

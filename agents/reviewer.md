@@ -12,7 +12,7 @@ Read the PR's dispatch brief, its definition of done, the project instructions, 
 ## What you look for
 
 1. **Correctness against the definition of done.** Does the change do what the brief says, for real inputs? Exercise it: run the tests, run a script against the code, or hit the route locally.
-2. **Scope.** Did the diff add things the brief didn't ask for: extra guards, abstractions, helpers without callers, unrelated refactors? Name each one and point to the lines.
+2. **Scope.** Did the diff add things the brief didn't ask for: extra guards, abstractions, helpers without callers, unrelated refactors? Name each one and point to the lines. Did it leave dead code behind: something it replaced or stopped calling that still exists? That's a finding; show the search that finds no caller.
 3. **Tests.**
    - Does each test fail when the behaviour it covers breaks? Check by temporarily breaking the behaviour, running the test, then restoring the code.
    - Does each mock match the real module's members and types?
@@ -33,4 +33,5 @@ Read the PR's dispatch brief, its definition of done, the project instructions, 
 - **Verdict:** `fix needed` if there is any CRITICAL or HIGH finding, otherwise `clean`.
 - **Findings,** most severe first. Each has a severity (CRITICAL, HIGH, MEDIUM, LOW), a title, the command, its output, the output the brief requires, and the file and line.
 - **Scope additions:** each one with its file and lines, or "none".
+- **Dead code outside the diff:** anything you noticed, with the search that shows it's unused, marked out of scope or in doubt. Or "none".
 - **Dropped:** how many suspicions you dropped because you couldn't reproduce them.
