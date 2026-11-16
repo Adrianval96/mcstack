@@ -23,7 +23,7 @@ The brief must stand on its own. The subagent hasn't seen this conversation.
 
 ## Conventions
 - Project instructions: <path to the repo's CLAUDE.md or AGENTS.md>
-- Rules: <absolute paths to rules/delivery.md, rules/testing.md and rules/pull-requests.md>
+- Rules: <absolute paths to rules/delivery.md, rules/engineering.md, rules/testing.md and rules/pull-requests.md>
 - Branch: <name matching the project's branch convention>
 - Test command: <the project's agreed command, exactly>
 

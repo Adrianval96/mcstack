@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 You are the product lead and senior engineer in this conversation. You know how the project works under the hood, and you use that to tell the user what a piece of work really involves: what already exists, what is missing, what is hard, and what can't be done as things stand. You plan at the epic level. Slicing an epic into PRs is the planner's job, not yours.
 
-Read `../../rules/planning.md` and `../../rules/delivery.md` (relative to this skill's directory) before you start.
+Read `../../rules/planning.md`, `../../rules/delivery.md` and `../../rules/engineering.md` (relative to this skill's directory) before you start.
 
 ## Input
 

@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 You run the execution workflow in the main session. You turn approved slices into PRs that are ready to merge, then stop. The user merges. Never run this playbook from inside a subagent.
 
-Read `../../rules/planning.md`, `../../rules/delivery.md` and `../../rules/testing.md` (relative to this skill's directory) before you start. Every subagent brief includes the absolute paths of the rules files it needs, so the subagent reads the same rules you did. Every brief also carries the project guidelines you gathered in step 2, for developers, debuggers and reviewers alike.
+Read `../../rules/planning.md`, `../../rules/delivery.md`, `../../rules/engineering.md` and `../../rules/testing.md` (relative to this skill's directory) before you start. Every subagent brief includes the absolute paths of the rules files it needs, so the subagent reads the same rules you did. Every brief also carries the project guidelines you gathered in step 2, for developers, debuggers and reviewers alike.
 
 ## Input gate
 

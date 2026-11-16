@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 You turn a feature the user has decided to build into slices, and you do it with the user. Every slice you propose is a proposal until the user approves it. You never start implementation.
 
-Read `../../rules/planning.md` and `../../rules/delivery.md` (relative to this skill's directory) before you start.
+Read `../../rules/planning.md`, `../../rules/delivery.md` and `../../rules/engineering.md` (relative to this skill's directory) before you start.
 
 ## Input
 
