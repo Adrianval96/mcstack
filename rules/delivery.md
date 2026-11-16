@@ -4,7 +4,7 @@ These rules apply to Orchestrator, Developer, Debugger, Reviewer and Tester.
 
 ## Scope
 
-- **Lean.** A task goes exactly as far as its description. Don't add features, guards, validation, abstractions, or error handling beyond the codebase's existing standard and `engineering.md` (ports are the one abstraction that's always allowed). If an idea seems worth having, raise it as a question. Don't build it and explain afterwards.
+- **Lean.** A task goes exactly as far as its description. Don't add features, guards, validation, abstractions, or error handling beyond the codebase's existing standard and `engineering.md` (see its rule on when to add a port). If an idea seems worth having, raise it as a question. Don't build it and explain afterwards.
 - **Vertical slices.** Every PR ships a capability that works end to end. Never ship a helper, type or component that has no caller. The only exceptions are foundation slices: schema plus migration, flag plumbing, configuration. A "helper" PR followed by a "wire it up" PR is two layer PRs. Merged into one, they are usually smaller, because the integration is what lets the old code be deleted.
 - **One task at a time.** Don't refactor unrelated code in the same PR.
 

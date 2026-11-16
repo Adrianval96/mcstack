@@ -14,7 +14,7 @@ Business logic never depends on a framework, a database or a third-party API. De
 | Composition root | The one place that builds adapters and hands them to use cases | Everything |
 
 - **Put every change in a layer, and name the layer in plans and PRs.** A rule that decides what the user gets is domain or application code, even when it's one `if`.
-- **Ports are the one abstraction that's always allowed.** A port with a single adapter isn't over-engineering; the lean rule in `delivery.md` doesn't apply to it. Anything else abstract still needs a second caller.
+- **When to add a port.** Where a project uses this layout, its ports are part of the architecture, and Reviewer doesn't flag them as over-engineering. Anywhere else, add a port only when a use case does I/O that a test needs to fake. Otherwise the lean rule in `delivery.md` applies.
 - **Test use cases with in-memory fakes of their ports,** not mocks of classes you own. A fake implements the port, so a changed port signature breaks the test; a mock doesn't.
 - **If the project enforces the layering with a tool** (import-linter, dependency-cruiser, ESLint boundaries), it's part of lint and must pass.
 - **In a codebase that isn't laid out this way,** don't restructure existing code unless the slice asks for it. New business logic still goes in a framework-free module behind a narrow interface, called from the framework's file (a route, a collection hook). Framework configuration stays where the framework expects it. Reviewer flags new business logic written inside an adapter; it doesn't flag the existing layout.
