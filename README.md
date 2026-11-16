@@ -91,10 +91,11 @@ Note: cloud sessions may start on an auto-generated branch. If your project sets
 
 ## Rules
 
-The skills and the orchestrator's dispatch briefs point at three short rules files:
+The skills and the orchestrator's dispatch briefs point at four short rules files:
 
 - [`rules/planning.md`](rules/planning.md) covers the why-now test, the observable definition of done, specs as proposals, verifying against the repo, and two levels only.
 - [`rules/delivery.md`](rules/delivery.md) covers lean scope, vertical slices, verification, and never speaking as the user.
+- [`rules/pull-requests.md`](rules/pull-requests.md) covers how Developer and Debugger write a PR for human review: when to open one, the title, the body sections, and keeping it true after fix rounds.
 - [`rules/testing.md`](rules/testing.md) covers behaviour over implementation, mocks drifting from the real contract, and tests that can't fail.
 
 Project-specific conventions belong in each project's `CLAUDE.md`, not here.

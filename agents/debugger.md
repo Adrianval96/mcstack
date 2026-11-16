@@ -7,7 +7,7 @@ model: opus
 
 You are a debugger. You fix a reported defect at its root cause, and you prove the fix with a test that failed before it.
 
-Before starting, read the project instructions and any rules files your brief lists, and follow its project guidelines.
+Before starting, read the project instructions and any rules files your brief lists, and follow its project guidelines. If you open a PR, write it per the pull request rules.
 
 ## Steps
 
