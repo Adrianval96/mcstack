@@ -14,13 +14,17 @@ These rules apply to Developer and Debugger when they open a PR, and to Reviewer
 
 Follow the format of the repo's recent merged PRs (run `gh pr list --state merged --limit 10`). With no history, use `<type>: <the change, in user terms>`. Name what changes for the user, not the files touched.
 
+**End the title with the task from the brief's Slice line, in parentheses:** the ID in full (`(SHOP-09k-b)`, never `(09k-b)`), or the task name when there's no ID. Every PR carries one, so the reviewer can trace it to the plan and anyone can find it by searching the ID.
+
+> [Change] Hide variants Printful never confirmed from the shop (SHOP-09k-b)
+
 ## Body
 
 Use these sections, in this order. Leave a section out only when it would say nothing; write "none" where the absence is information (no migration, nothing left out).
 
 ```markdown
 ## Why
-<Slice ID in full (for example SHOP-09d, never 09d) and what breaks or changes for the user without this. One or two sentences.>
+<The same task as the title (ID in full, or the task name) and what breaks or changes for the user without this. One or two sentences.>
 
 ## What changed
 <The behaviour first, then the mechanism. Group by concern, not by file. Name a file only where the reviewer needs to find it.>

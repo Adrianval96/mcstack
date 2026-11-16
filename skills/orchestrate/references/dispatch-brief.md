@@ -7,7 +7,7 @@ The brief must stand on its own. The subagent hasn't seen this conversation.
 <the user's goal in one or two sentences: who it is for, and what changes for them>
 
 ## Slice
-<ID and capability>. Approved by the user on <date>.
+<ID in full and capability; for work with no ID, a short task name>. Approved by the user on <date>.
 
 ## Definition of done (observable)
 <copied verbatim from the slice>
