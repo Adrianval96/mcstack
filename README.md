@@ -22,6 +22,7 @@ Plugin skills are namespaced, so the skills below are invoked as `/mcstack:<name
 | Planner | skill `/mcstack:planner` | your session model | Turns an approved feature into vertical slices, each with a why-now and an observable definition of done. You approve each slice |
 | Designer | skill `/mcstack:designer` | your session model | Mockups and UX ideas. Marks every contestable choice as a fork, with the case for the alternative |
 | Orchestrator | skill `/mcstack:orchestrate` | your session model | Takes approved slices to PRs that are ready to merge, using the subagents below |
+| Bug intake | skill `/mcstack:bug` | your session model | Takes a bug you describe, logs it as an issue, reads the code it touches, and runs it to a PR that is ready to merge |
 | Developer | agent `mcstack:developer` | Sonnet | Implements one slice as one PR. Adds nothing the brief didn't ask for |
 | Debugger | agent `mcstack:debugger` | Opus | Reproduces the bug, finds the root cause, writes a failing test, then fixes |
 | Reviewer | agent `mcstack:reviewer` | Opus | Tries to break the PR. Keeps only findings it can reproduce with a command |
@@ -39,6 +40,16 @@ Product, Lead, Planner and Designer are conversations, so they never run as suba
 ```
 
 There are two human gates: slice approval and merge.
+
+## The bug workflow
+
+```
+/mcstack:bug <what you saw, where>  →  issue logged
+        →  debugger → reviewer + security-reviewer → tester
+        →  you merge
+```
+
+Your report is the approval for that one fix, so merge is the only gate. A bug that turns out to need a design change goes back to `/mcstack:planner`.
 
 Tell the orchestrator where your coding guidelines live: files to load, or a lookup skill to run (a notes-vault reader, say). It gathers them once per run and puts the rules that apply into every subagent brief, so nothing machine-specific goes in the repo. Everything between them runs unattended.
 
