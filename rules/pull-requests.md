@@ -6,7 +6,7 @@ These rules apply to Developer and Debugger when they open a PR, and to Reviewer
 
 - **The work is complete and the brief asked for a PR.** Never open one to save progress.
 - **It's one vertical slice.** If the body would have to explain why new code has no callers, it's a layer PR. Stop and report instead of opening it.
-- **It fits the budget: about 200 changed lines,** not counting migrations, generated files and lockfiles. If it's going to be bigger, stop before writing the rest and report a split within the capability. Don't fall back to splitting by layer.
+- **It fits the budget: about 200 changed lines,** not counting migrations, generated files, lockfiles and deleted lines. If it's going to be bigger, stop before writing the rest and report a split within the capability. Don't fall back to splitting by layer.
 - **A migration was run locally** (up, down, then up again) against a real database, and the app still loads. If you couldn't run it, don't open the PR; report why.
 - **Tests, type-check and lint pass** with the project's commands, in this session.
 
@@ -14,7 +14,7 @@ These rules apply to Developer and Debugger when they open a PR, and to Reviewer
 
 Follow the format of the repo's recent merged PRs (run `gh pr list --state merged --limit 10`). With no history, use `<type>: <the change, in user terms>`. Name what changes for the user, not the files touched.
 
-**End the title with the task from the brief's Slice line, in parentheses:** the ID in full (`(SHOP-09k-b)`, never `(09k-b)`), or the task name when there's no ID. Every PR carries one, so the reviewer can trace it to the plan and anyone can find it by searching the ID.
+**End the title with the task from the brief's Slice line, in parentheses:** the ID in full (`(SHOP-09k-b)`, never `(09k-b)`), or the task name when there's no ID. A bug logged as an issue uses its number (`(#123)`), and the body says `Fixes #123` so the merge closes it. Every PR carries one, so the reviewer can trace it to the plan and anyone can find it by searching the ID.
 
 > [Change] Hide variants Printful never confirmed from the shop (SHOP-09k-b)
 

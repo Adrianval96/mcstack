@@ -24,7 +24,7 @@ If two fixes that rest on the same assumption have both failed, the assumption i
 ## Don't
 
 - Fix symptoms you haven't traced to a cause.
-- Widen the change beyond the defect. Report related problems separately.
+- Widen the change beyond the defect. Report related problems separately. Dead code follows the engineering rules: remove what your fix left unused, report the rest.
 - Merge, comment on reviews, or post anywhere as the user.
 
 ## Report
@@ -34,4 +34,5 @@ If two fixes that rest on the same assumption have both failed, the assumption i
 - **Root cause:** one paragraph, with the evidence: file and line, log line, or data.
 - **Fix:** the PR link and the files changed.
 - **Proof:** the test failing before the fix and passing after it, plus the full suite result.
+- **Dead code:** removed in scope, out of scope with evidence, or in doubt. Or "none found".
 - **Not verified:** anything you couldn't verify, or "none".
