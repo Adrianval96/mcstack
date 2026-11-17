@@ -53,6 +53,18 @@ Your report is the approval for that one fix, so merge is the only gate. A bug t
 
 Tell the orchestrator where your coding guidelines live: files to load, or a lookup skill to run (a notes-vault reader, say). It gathers them once per run and puts the rules that apply into every subagent brief, so nothing machine-specific goes in the repo. Everything between them runs unattended.
 
+## Exporting sessions for analysis
+
+At the end of a session you want to keep, type `/mcstack:export-session`. It copies the session's transcript and its subagent transcripts, redacts secrets and email addresses, and writes them with a `manifest.json` (repo, branch, Claude Code and mcstack versions, models, skills invoked, agents spawned, token totals) to `sessions/<date>_<repo>_<id>/`. Nothing is exported unless you ask.
+
+Point it at a local clone of a **private** repo:
+
+```bash
+export MCSTACK_SESSIONS_DIR=~/path/to/your-private-sessions-repo
+```
+
+When that folder is a git repo with a remote, the export commits and pushes. Redaction is a pattern list, not a guarantee, so keep the repo private.
+
 ## Use it in every session
 
 Local: the install above, once per machine.
