@@ -14,7 +14,7 @@ These rules apply to Developer and Debugger when they open a PR, and to Reviewer
 
 Follow the format of the repo's recent merged PRs (run `gh pr list --state merged --limit 10`). With no history, use `<type>: <the change, in user terms>`. Name what changes for the user, not the files touched.
 
-**End the title with the task from the brief's Slice line, in parentheses:** the ID in full (`(SHOP-09k-b)`, never `(09k-b)`), or the task name when there's no ID. Every PR carries one, so the reviewer can trace it to the plan and anyone can find it by searching the ID.
+**End the title with the task from the brief's Slice line, in parentheses:** the ID in full (`(SHOP-09k-b)`, never `(09k-b)`), or the task name when there's no ID. A bug logged as an issue uses its number (`(#123)`), and the body says `Fixes #123` so the merge closes it. Every PR carries one, so the reviewer can trace it to the plan and anyone can find it by searching the ID.
 
 > [Change] Hide variants Printful never confirmed from the shop (SHOP-09k-b)
 
