@@ -37,6 +37,25 @@ class GuardTest(unittest.TestCase):
     def test_denies_no_verify(self):
         self.assertEqual(run_guard(bash("git commit --no-verify -m x", self.repo)), "deny")
 
+    def test_denies_commit_short_n_in_any_position(self):
+        for command in ("git commit -n -m x", 'git commit -nm "msg"', "git -C repo commit -n",
+                        "cd src && git commit -n -m x", "git status\ngit commit -n -m x",
+                        "git push --no-verify origin add/x"):
+            self.assertEqual(run_guard(bash(command, self.repo)), "deny", command)
+
+    def test_allows_n_flags_on_other_commands(self):
+        for command in ('grep -n foo src && git commit -m "x"', 'sed -n 1,5p f; git commit -m "head -n tidy"',
+                        "git push -n origin add/x", "git log -n 5"):
+            self.assertIsNone(run_guard(bash(command, self.repo)), command)
+
+    def test_allows_text_that_only_mentions_the_flag(self):
+        for command in ('echo "never use git commit --no-verify" > notes.md', 'grep -rn "no-verify" docs/',
+                        'git commit -m "explain why --no-verify is blocked"'):
+            self.assertIsNone(run_guard(bash(command, self.repo)), command)
+
+    def test_falls_back_to_strict_matching_when_quotes_dont_balance(self):
+        self.assertEqual(run_guard(bash("git commit --no-verify -m 'unclosed", self.repo)), "deny")
+
     def test_asks_before_merge_and_comments(self):
         for command in ("gh pr merge 12 --squash", "gh pr comment 12 -b hi", "gh pr review 12 --approve",
                         "gh api repos/o/r/pulls/12/comments -f body=x"):
@@ -48,7 +67,9 @@ class GuardTest(unittest.TestCase):
 
     def test_force_push_asks_but_lease_is_allowed(self):
         self.assertEqual(run_guard(bash("git push --force origin main", self.repo)), "ask")
+        self.assertEqual(run_guard(bash("git push -fu origin main", self.repo)), "ask")
         self.assertIsNone(run_guard(bash("git push --force-with-lease origin add/x", self.repo)))
+        self.assertIsNone(run_guard(bash('echo "git push --force" >> runbook.md', self.repo)))
 
     def test_branch_pattern_blocks_auto_generated_branch(self):
         self.write_config({"branchPattern": "^(fix|add|change|refactor|chore)/"})
