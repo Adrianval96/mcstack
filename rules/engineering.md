@@ -35,6 +35,7 @@ Dead code is anything no running path reaches: unused exports, functions, types,
 - **The simplest option that meets the definition of done.** No configuration for a value that never changes, and no code "for later".
 - **Strict types.** No `any` or untyped escape hatch unless it's truly unavoidable, and then with a comment saying why. Use generated types; don't redeclare them.
 - **Name every non-trivial shape.** A return type or parameter object with more than one field gets a named type, following the project's naming convention. Don't inline it in the signature.
+- **Name a component, module or file for what it is, never for its copy or where it sits.** Use the domain and the role (`RelatedProducts`, `PrintCard`), not visible text, a heading or the host page (`KeepLooking`, `HomePrints`). The name must still fit after a copy change or a move to another page. Whoever writes the brief names new components in its contract; a reviewer treats a copy- or page-based name as a finding.
 - **Validate at trust boundaries:** user input, webhooks, third-party responses. Validate on the server, inside the adapter, before the data reaches a use case.
 - **Never swallow an error.** Handle it, or let it reach a layer that can. Never send internal errors, stack traces or file paths to a client.
 - **Secrets come from the environment.** Never in code, logs, test fixtures or PR bodies.
