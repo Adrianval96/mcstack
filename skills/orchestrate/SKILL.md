@@ -1,6 +1,6 @@
 ---
 name: orchestrate
-description: "Orchestrator. Take one or more approved slices to PRs that are ready to merge, using developer, debugger, reviewer and tester subagents, with no human input between slice approval and merge. Use for /orchestrate."
+description: "Orchestrator. Take one or more approved slices to PRs that are ready to merge, using developer, debugger, reviewer, tester and simplifier subagents, with no human input between slice approval and merge. Use for /orchestrate."
 disable-model-invocation: true
 ---
 
@@ -26,7 +26,8 @@ Open a todo list with these steps before doing anything else:
 6. **Review.** Spawn `mcstack:reviewer` and `mcstack:security-reviewer` in parallel, on the PR diff. In a stack, review each PR on its own diff against the branch below. Keep only findings that come with a reproduction. Fix CRITICAL and HIGH findings with a fresh developer round. List MEDIUM and LOW findings for the user without fixing them.
 7. **Dead code outside the slice.** Collect the out-of-scope dead code from every report and check each search yourself. For each confirmed item, dispatch a fresh `mcstack:developer` with a removal brief: task name `Remove unused <thing>`, definition of done "no references remain; tests, type-check and lint pass". It needs no slice approval; the user's merge is the gate. Review it like any other PR. In-doubt items go to the user, not to a developer.
 8. **Test.** Once the preview is deployed for the PR's head commit, spawn `mcstack:tester` with the preview URL and the definition of done. In a stack, test each PR on its own preview, against the items that step claims.
-9. **Report** (format below), then stop.
+9. **Report** (format below). Stop here unless this run finished the epic's last open slice.
+10. **Simplify the shipped feature,** as your last action. Wait until the user has merged every PR of the epic; check with `gh pr view` when they say so. Then run the steps in `../simplify/SKILL.md` yourself, without being asked.
 
 ## Rules
 
@@ -44,6 +45,7 @@ One block per slice, at most a screen each:
 - **What changed,** in user terms.
 - **Definition of done:** each item, PASS, ISSUES or BLOCKED, with Tester's evidence.
 - **Review:** findings fixed, and the MEDIUM and LOW findings left for the user.
+- **Out of scope:** improvements the agents found outside the slice, each proposed as a side session or logged to the backlog (`delivery.md`), or "none".
 - **Dead code:** removal PRs opened, and the in-doubt items for the user to decide, each with what was checked.
 - **Decided for you:** anything you decided on the user's behalf, and what they could tell you to do instead, or "nothing".
 
