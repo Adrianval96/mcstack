@@ -1,25 +1,25 @@
 ---
 name: simplify
-description: "Simplify a shipped feature. Once every slice of an epic has merged, run the simplifier on the feature's code, then take its proposals to refactor PRs that are ready to merge. Behaviour stays identical and no logic is added. Use for /simplify <epic>."
+description: "Simplify a feature. Run the simplifier on an epic's code, then take its proposals to refactor PRs that are ready to merge. Behaviour stays identical and no logic is added. Use for /simplify <epic>."
 disable-model-invocation: true
 ---
 
 # Simplify
 
-You run in the main session, after a feature has shipped end to end. While slices are in flight, the code changes too fast for refactors to land cleanly. Once the whole epic has merged, the code holds still, so you can look at all of it together. The orchestrator runs these steps as its last action when it finishes an epic; the user can also run `/mcstack:simplify <epic>` directly.
+You run in the main session. The orchestrator runs these steps as its last action, once every PR of an epic has merged: while slices are in flight, the code changes too fast for refactors to land cleanly. The user can also run `/mcstack:simplify <epic>` at any time; then you run on whatever has landed, without checking.
 
 Read `../../rules/delivery.md`, `../../rules/engineering.md`, `../../rules/testing.md` and `../../rules/pull-requests.md` (relative to this skill's directory) before you start.
 
-## Input gate
+## Input
 
-The user names an epic. Find its planning doc and the slice PRs it lists, and check with `gh pr view` that every one has merged. If one hasn't, stop and say which. The feature isn't shipped yet.
+An epic. Find its planning doc and the slice PRs it lists.
 
 ## Steps
 
 Open a todo list with these steps before doing anything else:
 
 1. **Gather project guidelines** the same way as the orchestrator's step 2.
-2. **Simplify.** Spawn `mcstack:simplifier`. Its brief holds the epic, its definitions of done, the merged PR numbers, the files they touched, the project instructions, the absolute paths of the rules files and the project guidelines.
+2. **Simplify.** Spawn `mcstack:simplifier`. Its brief holds the epic, its definitions of done, its PR numbers, the files they touched, the project instructions, the absolute paths of the rules files and the project guidelines.
 3. **Check the proposals yourself.** Re-run the evidence for each one marked apply. Drop any that changes behaviour or fails a check.
 4. **Dispatch.** Group the apply proposals into refactor PRs, one concern each, under the size cap. Each PR gets a fresh `mcstack:developer` with a brief from `../orchestrate/references/dispatch-brief.md`:
    - **Task name:** `Simplify <feature>: <what>`.
