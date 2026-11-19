@@ -39,7 +39,7 @@ Product, Lead, Planner and Designer are conversations, so they never run as suba
 /mcstack:product  →  /mcstack:lead  →  /mcstack:planner  →  you approve a slice
         →  /mcstack:orchestrate: developer → reviewer + security-reviewer → tester
         →  you merge
-        →  once the epic's last slice merges: /mcstack:simplify → refactor PRs → you merge
+        →  once the epic's last PR merges, the orchestrator runs simplifier → refactor PRs → you merge
 ```
 
 There are two human gates: slice approval and merge.

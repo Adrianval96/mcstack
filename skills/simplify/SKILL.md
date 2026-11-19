@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # Simplify
 
-You run in the main session, after a feature has shipped end to end. While slices are in flight, the code changes too fast for refactors to land cleanly. Once the whole epic has merged, the code holds still, so you can look at all of it together.
+You run in the main session, after a feature has shipped end to end. While slices are in flight, the code changes too fast for refactors to land cleanly. Once the whole epic has merged, the code holds still, so you can look at all of it together. The orchestrator runs these steps as its last action when it finishes an epic; the user can also run `/mcstack:simplify <epic>` directly.
 
 Read `../../rules/delivery.md`, `../../rules/engineering.md`, `../../rules/testing.md` and `../../rules/pull-requests.md` (relative to this skill's directory) before you start.
 
