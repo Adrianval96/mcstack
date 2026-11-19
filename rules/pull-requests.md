@@ -21,6 +21,8 @@ These rules apply to Developer and Debugger when they open a PR, and to Reviewer
 3. **Open each PR on the branch below:** `gh pr create --base <branch below>`. The bottom PR targets the default branch.
 4. **If one step can't be split any thinner and still work end to end,** that one PR goes over the cap. Never split it by layer to get under. In How to review, say what the smallest working piece is and why nothing thinner works on its own.
 
+**Stack only the steps of one slice.** Every other PR branches from the default branch, even when its slice builds on one that hasn't merged yet: wait for that merge instead. Repos squash-merge, and a PR stacked on another slice's branch has to be conflict-merged every time something below it lands, which makes it impossible to review.
+
 **A stack lands in one go, once every PR in it has been reviewed and approved.** Merge it down: the top PR into the branch below it, then that one into the next, and the bottom PR into the default branch last. The default branch sees one merge and runs CI/CD once for the whole stack.
 
 ## Title
