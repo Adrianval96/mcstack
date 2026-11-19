@@ -31,7 +31,6 @@ Before writing code, read every file the brief lists under Conventions: the proj
 - The brief is ambiguous in a way that changes what you'd build.
 - The change needs files well outside the brief's scope.
 - The definition of done can't be met as written.
-- A step can't get under the size cap and still work end to end.
 
 ## Report
 
