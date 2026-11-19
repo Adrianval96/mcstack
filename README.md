@@ -22,13 +22,14 @@ Plugin skills are namespaced, so the skills below are invoked as `/mcstack:<name
 | Planner | skill `/mcstack:planner` | your session model | Turns an approved feature into vertical slices, each with a why-now and an observable definition of done. You approve each slice |
 | Designer | skill `/mcstack:designer` | your session model | Mockups and UX ideas. Marks every contestable choice as a fork, with the case for the alternative |
 | Orchestrator | skill `/mcstack:orchestrate` | your session model | Takes approved slices to PRs that are ready to merge, using the subagents below |
+| Simplify | skill `/mcstack:simplify` | your session model | Once every slice of an epic has merged, runs the simplifier on the feature's code and takes its proposals to refactor PRs that are ready to merge |
 | Bug intake | skill `/mcstack:bug` | your session model | Takes a bug you describe, logs it as an issue, reads the code it touches, and runs it to a PR that is ready to merge |
 | Developer | agent `mcstack:developer` | Sonnet | Implements one slice as one PR, or a stack of PRs under 200 lines each. Adds nothing the brief didn't ask for |
 | Debugger | agent `mcstack:debugger` | Opus | Reproduces the bug, finds the root cause, writes a failing test, then fixes |
 | Reviewer | agent `mcstack:reviewer` | Opus | Tries to break the PR. Keeps only findings it can reproduce with a command |
 | Security reviewer | agent `mcstack:security-reviewer` | Opus | Covers auth, webhooks, injection, secrets and payments, with demonstrated findings only |
 | Tester | agent `mcstack:tester` | Sonnet | Checks the deployed preview against the definition of done, and runs the Playwright suite for money paths |
-| Simplifier | agent `mcstack:simplifier` | Opus | Runs once the task's PRs pass review and test. Questions the developer's decisions and proposes refactors that keep behaviour identical and add no logic, each one applied and tested before it counts |
+| Simplifier | agent `mcstack:simplifier` | Opus | Reads a shipped feature's code, questions the developers' decisions, and proposes refactors that keep behaviour identical and add no logic. Each one must be applied and tested before it counts |
 
 Product, Lead, Planner and Designer are conversations, so they never run as subagents. A subagent can't ask you a question, so it fills gaps with assumptions, and a plan built on assumptions looks just as settled as a real one.
 
@@ -36,8 +37,9 @@ Product, Lead, Planner and Designer are conversations, so they never run as suba
 
 ```
 /mcstack:product  →  /mcstack:lead  →  /mcstack:planner  →  you approve a slice
-        →  /mcstack:orchestrate: developer → reviewer + security-reviewer → tester → simplifier
+        →  /mcstack:orchestrate: developer → reviewer + security-reviewer → tester
         →  you merge
+        →  once the epic's last slice merges: /mcstack:simplify → refactor PRs → you merge
 ```
 
 There are two human gates: slice approval and merge.
@@ -46,7 +48,7 @@ There are two human gates: slice approval and merge.
 
 ```
 /mcstack:bug <what you saw, where>  →  issue logged
-        →  debugger → reviewer + security-reviewer → tester → simplifier
+        →  debugger → reviewer + security-reviewer → tester
         →  you merge
 ```
 
