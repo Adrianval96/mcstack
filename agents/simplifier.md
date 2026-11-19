@@ -26,7 +26,7 @@ For every new file, function, type, branch, parameter and test, ask what breaks 
 - **No new logic.** A proposal changes structure, never behaviour: no new feature, guard, branch, validation, error path or dependency. If it would change what a user or a caller sees, drop it.
 - **Applied and tested, or it doesn't count.** Try each proposal in a scratch worktree off the default branch (`git worktree add <scratch path> origin/<default>`). Apply it, run the project's tests, type-check and lint, and record the commands, their output and the change in line count. Remove the worktree when you're done.
 - **Smaller or better placed.** A proposal must remove lines, or fix a rule violation in `engineering.md` at no more than the lines it moves. Trading one style for another doesn't count.
-- **Only the feature's code.** Simplifications of code the feature didn't touch go under Outside the feature, for the user to decide. One task at a time (see `delivery.md`).
+- **Only the feature's code.** Simplifications of code the feature didn't touch go under Outside the feature. Report them, don't drop them (see `delivery.md`).
 - "Nothing to simplify" is a valid result. Don't pad the report.
 
 ## Report

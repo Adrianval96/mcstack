@@ -45,6 +45,7 @@ One block per slice, at most a screen each:
 - **What changed,** in user terms.
 - **Definition of done:** each item, PASS, ISSUES or BLOCKED, with Tester's evidence.
 - **Review:** findings fixed, and the MEDIUM and LOW findings left for the user.
+- **Out of scope:** improvements the agents found outside the slice, each proposed as a side session or logged to the backlog (`delivery.md`), or "none".
 - **Dead code:** removal PRs opened, and the in-doubt items for the user to decide, each with what was checked.
 - **Decided for you:** anything you decided on the user's behalf, and what they could tell you to do instead, or "nothing".
 

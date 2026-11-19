@@ -32,7 +32,8 @@ Open a todo list with these steps before doing anything else:
 ## Report
 
 - **PRs:** the links, each with its net line change and whether it's ready to merge.
-- **Left for you:** proposals marked consider, and anything outside the feature, each with the simplifier's reason.
+- **Left for you:** proposals marked consider, each with the simplifier's reason.
+- **Outside the feature:** each item proposed as a side session or logged to the backlog (`delivery.md`), or "none".
 - **Dropped:** proposals you rejected in step 3, and why.
 
 The orchestrator's rules on fresh subagents, stopping and never merging apply unchanged.

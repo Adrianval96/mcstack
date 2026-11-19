@@ -7,6 +7,7 @@ These rules apply to Orchestrator, Developer, Debugger, Reviewer, Tester and Sim
 - **Lean.** A task goes exactly as far as its description. Don't add features, guards, validation, abstractions, or error handling beyond the codebase's existing standard and `engineering.md` (see its rule on when to add a port). If an idea seems worth having, raise it as a question. Don't build it and explain afterwards.
 - **Vertical slices.** Every PR ships a capability that works end to end. Never ship a helper, type or component that has no caller. The only exceptions are foundation slices: schema plus migration, flag plumbing, configuration. A "helper" PR followed by a "wire it up" PR is two layer PRs. Merged into one, they are usually smaller, because the integration is what lets the old code be deleted. A slice too big for one PR ships as a stack of thinner vertical steps, each one working end to end (`pull-requests.md` has the size cap and how to stack). It never ships as a stack of layers.
 - **One task at a time.** Don't refactor unrelated code in the same PR. Dead code follows the rule in `engineering.md`: in scope it goes in this PR, out of scope it gets its own.
+- **Report what you find out of scope; don't drop it.** Anything worth improving outside the task goes in your report, with where it is and why it's worth doing. Don't fix it. The main session turns each item into a proposed side session, or a backlog entry wherever the project keeps its backlog. If the project instructions don't say where that is, it asks the user.
 
 ## Project guidelines
 
