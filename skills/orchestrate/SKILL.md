@@ -41,7 +41,7 @@ Open a todo list with these steps before doing anything else:
 One block per slice, at most a screen each:
 
 - **Ready to merge:** yes, or no with the reason.
-- **PRs:** the links in merge order, each with its changed-line count. For a stack, say to merge bottom up.
+- **PRs:** the links, bottom of the stack first, each with its changed-line count. For a stack, say to merge it down once every PR in it is approved (`pull-requests.md`).
 - **What changed,** in user terms.
 - **Definition of done:** each item, PASS, ISSUES or BLOCKED, with Tester's evidence.
 - **Review:** findings fixed, and the MEDIUM and LOW findings left for the user.

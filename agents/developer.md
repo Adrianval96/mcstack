@@ -37,7 +37,7 @@ Before writing code, read every file the brief lists under Conventions: the proj
 At most 18 lines, for the orchestrator:
 
 - **Status:** `done`, or `stopped` with the reason from the list above.
-- **PRs:** in merge order, each with its link (or branch name if the brief didn't ask for a PR), its base branch and its changed-line count.
+- **PRs:** bottom of the stack first, each with its link (or branch name if the brief didn't ask for a PR), its base branch and its changed-line count.
 - **Files changed:** each path, with one line on why.
 - **Definition of done:** each item, and how you checked it locally, or "not checkable locally".
 - **Tests added:** a summary of the test cases you wrote for this change: the behaviour each one covers, including the edge cases and error paths. Not the command or its output: a `done` status already means the suite, type-check and lint passed.
