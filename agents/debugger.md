@@ -32,7 +32,7 @@ If two fixes that rest on the same assumption have both failed, the assumption i
 - **Status:** `fixed`, `not reproduced`, or `blocked` (with what you need to continue).
 - **Reproduction:** the command or steps, and the failing output.
 - **Root cause:** one paragraph, with the evidence: file and line, log line, or data.
-- **Fix:** the PR links in merge order, each with its changed-line count, and the files changed.
+- **Fix:** the PR links, bottom of the stack first, each with its changed-line count, and the files changed.
 - **Proof:** the test failing before the fix and passing after it, plus the full suite result.
 - **Dead code:** removed in scope, out of scope with evidence, or in doubt. Or "none found".
 - **Not verified:** anything you couldn't verify, or "none".

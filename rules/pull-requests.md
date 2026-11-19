@@ -21,7 +21,7 @@ These rules apply to Developer and Debugger when they open a PR, and to Reviewer
 3. **Open each PR on the branch below:** `gh pr create --base <branch below>`. The bottom PR targets the default branch.
 4. **If one step can't be split any thinner and still work end to end,** that one PR goes over the cap. Never split it by layer to get under. In How to review, say what the smallest working piece is and why nothing thinner works on its own.
 
-PRs merge bottom up. When the one below merges, GitHub retargets the next PR to the default branch. If the repo squash-merges, the next PR shows the merged commits again until you rebase it: `git rebase --onto origin/<default> <old base> <branch>`, then `git push --force-with-lease`.
+**A stack lands in one go, once every PR in it has been reviewed and approved.** Merge it down: the top PR into the branch below it, then that one into the next, and the bottom PR into the default branch last. The default branch sees one merge and runs CI/CD once for the whole stack.
 
 ## Title
 
@@ -39,7 +39,7 @@ Use these sections, in this order. Leave a section out only when it would say no
 
 ```markdown
 ## Stack
-<Only in a stacked PR. First line: "Stacked on #<n>: merge that first", or "Bottom of the stack" for the first PR. Then every step in merge order, with its PR number and one line on what it adds, marking this one.>
+<Only in a stacked PR. First line: "Stacked on #<n>", or "Bottom of the stack" for the first PR. Then every step, bottom first, with its PR number and one line on what it adds, marking this one.>
 
 ## Why
 <The same task as the title (ID in full, or the task name) and what breaks or changes for the user without this. One or two sentences.>
