@@ -9,6 +9,9 @@ The brief must stand on its own. The subagent hasn't seen this conversation.
 ## Slice
 <ID in full and capability; for work with no ID, a short task name>. Approved by the user on <date>.
 
+**PR size:** every PR under 200 changed lines (rules/pull-requests.md).
+**Steps:** <one PR, or the stack you expect: each step a thinner vertical that works on its own. The developer confirms or revises it before writing code>
+
 ## Definition of done (observable)
 <copied verbatim from the slice>
 

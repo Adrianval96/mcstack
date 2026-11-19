@@ -5,7 +5,7 @@ These rules apply to Orchestrator, Developer, Debugger, Reviewer and Tester.
 ## Scope
 
 - **Lean.** A task goes exactly as far as its description. Don't add features, guards, validation, abstractions, or error handling beyond the codebase's existing standard and `engineering.md` (see its rule on when to add a port). If an idea seems worth having, raise it as a question. Don't build it and explain afterwards.
-- **Vertical slices.** Every PR ships a capability that works end to end. Never ship a helper, type or component that has no caller. The only exceptions are foundation slices: schema plus migration, flag plumbing, configuration. A "helper" PR followed by a "wire it up" PR is two layer PRs. Merged into one, they are usually smaller, because the integration is what lets the old code be deleted.
+- **Vertical slices.** Every PR ships a capability that works end to end. Never ship a helper, type or component that has no caller. The only exceptions are foundation slices: schema plus migration, flag plumbing, configuration. A "helper" PR followed by a "wire it up" PR is two layer PRs. Merged into one, they are usually smaller, because the integration is what lets the old code be deleted. A slice too big for one PR ships as a stack of thinner vertical steps, each one working end to end (`pull-requests.md` has the size cap and how to stack). It never ships as a stack of layers.
 - **One task at a time.** Don't refactor unrelated code in the same PR. Dead code follows the rule in `engineering.md`: in scope it goes in this PR, out of scope it gets its own.
 
 ## Project guidelines
@@ -16,7 +16,7 @@ The brief's Project guidelines section holds the coding rules the orchestrator g
 
 - **Name the branch for the work** before the first edit, using the project's convention. The guard hook enforces it when the project configures `branchPattern`.
 - **No WIP commits in history, and no PRs nobody asked for.** Open a PR only when the work is complete and a PR has been requested.
-- **Write the PR per `pull-requests.md`:** title, body sections, size budget, and keeping the body true after fix rounds.
+- **Write the PR per `pull-requests.md`:** title, body sections, the size cap and stacking, and keeping the body true after fix rounds.
 
 ## Verification
 
