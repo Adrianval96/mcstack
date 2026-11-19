@@ -6,7 +6,7 @@ These rules apply to Developer and Debugger when they open a PR, and to Reviewer
 
 - **The work is complete and the brief asked for a PR.** Never open one to save progress.
 - **It's one vertical slice.** If the body would have to explain why new code has no callers, it's a layer PR. Stop and report instead of opening it.
-- **It's under 200 changed lines.** This is a hard cap (see Size and stacking).
+- **It's under 200 changed lines,** unless it's a step that can't be split any thinner (see Size and stacking).
 - **A migration was run locally** (up, down, then up again) against a real database, and the app still loads. If you couldn't run it, don't open the PR; report why.
 - **Tests, type-check and lint pass** with the project's commands, in this session.
 
@@ -19,7 +19,7 @@ These rules apply to Developer and Debugger when they open a PR, and to Reviewer
 1. **Write the step plan first.** Each step is a thinner vertical slice of the same capability that works end to end on its own (see `delivery.md`). For example: an empty page at its route, then the gallery on it, then the frame numbering. Never split by layer.
 2. **One branch per step,** each cut from the branch below it. Use the brief's branch name with a `-<n>` step suffix.
 3. **Open each PR on the branch below:** `gh pr create --base <branch below>`. The bottom PR targets the default branch.
-4. **If one step can't get under the cap and still work end to end,** stop and report it before you write it.
+4. **If one step can't be split any thinner and still work end to end,** that one PR goes over the cap. Never split it by layer to get under. In How to review, say what the smallest working piece is and why nothing thinner works on its own.
 
 PRs merge bottom up. When the one below merges, GitHub retargets the next PR to the default branch. If the repo squash-merges, the next PR shows the merged commits again until you rebase it: `git rebase --onto origin/<default> <old base> <branch>`, then `git push --force-with-lease`.
 
