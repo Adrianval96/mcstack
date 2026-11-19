@@ -28,6 +28,7 @@ Plugin skills are namespaced, so the skills below are invoked as `/mcstack:<name
 | Reviewer | agent `mcstack:reviewer` | Opus | Tries to break the PR. Keeps only findings it can reproduce with a command |
 | Security reviewer | agent `mcstack:security-reviewer` | Opus | Covers auth, webhooks, injection, secrets and payments, with demonstrated findings only |
 | Tester | agent `mcstack:tester` | Sonnet | Checks the deployed preview against the definition of done, and runs the Playwright suite for money paths |
+| Simplifier | agent `mcstack:simplifier` | Opus | Runs once the task's PRs pass review and test. Questions the developer's decisions and proposes refactors that keep behaviour identical and add no logic, each one applied and tested before it counts |
 
 Product, Lead, Planner and Designer are conversations, so they never run as subagents. A subagent can't ask you a question, so it fills gaps with assumptions, and a plan built on assumptions looks just as settled as a real one.
 
@@ -35,7 +36,7 @@ Product, Lead, Planner and Designer are conversations, so they never run as suba
 
 ```
 /mcstack:product  →  /mcstack:lead  →  /mcstack:planner  →  you approve a slice
-        →  /mcstack:orchestrate: developer → reviewer + security-reviewer → tester
+        →  /mcstack:orchestrate: developer → reviewer + security-reviewer → tester → simplifier
         →  you merge
 ```
 
@@ -45,7 +46,7 @@ There are two human gates: slice approval and merge.
 
 ```
 /mcstack:bug <what you saw, where>  →  issue logged
-        →  debugger → reviewer + security-reviewer → tester
+        →  debugger → reviewer + security-reviewer → tester → simplifier
         →  you merge
 ```
 

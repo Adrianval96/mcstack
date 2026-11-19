@@ -1,6 +1,6 @@
 # Engineering rules
 
-These rules apply in every project, to Lead, Planner, Orchestrator, Developer, Debugger and Reviewer. A project's instructions can add to them, or set one aside by naming it. Where they say nothing, these rules hold.
+These rules apply in every project, to Lead, Planner, Orchestrator, Developer, Debugger, Reviewer and Simplifier. A project's instructions can add to them, or set one aside by naming it. Where they say nothing, these rules hold.
 
 ## Architecture: ports and adapters
 

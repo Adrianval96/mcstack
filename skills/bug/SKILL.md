@@ -1,6 +1,6 @@
 ---
 name: bug
-description: "Bug intake. Take a bug the user describes in a prompt, log it as an issue, gather the repo context and the code it touches, then run debugger → reviewer + security-reviewer → tester to a PR that is ready to merge. Use for /bug."
+description: "Bug intake. Take a bug the user describes in a prompt, log it as an issue, gather the repo context and the code it touches, then run debugger → reviewer + security-reviewer → tester → simplifier to a PR that is ready to merge. Use for /bug."
 disable-model-invocation: true
 ---
 
@@ -30,7 +30,7 @@ Open a todo list with these steps before doing anything else:
    - **Excludes:** "Other defects found on the way: report them, don't fix them."
    - **Starting state:** what you verified in step 3, with file paths and commits.
    - **Approach:** the suspected area and the reproduction steps. Leave the diagnosis to the debugger.
-7. **Run the orchestrator's steps 4 to 9** with this one brief: dispatch `mcstack:debugger`, read the diff yourself, then review with `mcstack:reviewer` and `mcstack:security-reviewer`, handle dead code, test on the preview with `mcstack:tester`, and report. Its rules on fresh subagents, fix rounds and stopping apply unchanged.
+7. **Run the orchestrator's steps 4 to 10** with this one brief: dispatch `mcstack:debugger`, read the diff yourself, then review with `mcstack:reviewer` and `mcstack:security-reviewer`, handle dead code, test on the preview with `mcstack:tester`, simplify with `mcstack:simplifier`, and report. Its rules on fresh subagents, fix rounds and stopping apply unchanged.
 
 ## Stop and ask the user when
 

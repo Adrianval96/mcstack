@@ -1,6 +1,6 @@
 # Delivery rules
 
-These rules apply to Orchestrator, Developer, Debugger, Reviewer and Tester.
+These rules apply to Orchestrator, Developer, Debugger, Reviewer, Tester and Simplifier.
 
 ## Scope
 
