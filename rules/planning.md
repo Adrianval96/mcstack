@@ -36,9 +36,9 @@ A stale spec is worse than no spec, because it carries authority it hasn't earne
 
 ## Shape
 
-- **Two levels only: epic, then slice.** A slice is one PR. If a slice needs sub-slices, the epic was scoped wrong. Go back up; don't recurse down.
+- **Two levels only: epic, then slice.** A slice is one approval, one definition of done and one dispatch. It ships as one PR, or as a stack of PRs when it's over the size cap in `pull-requests.md`. The steps of a stack are not sub-slices: nobody approves them separately. If a slice needs sub-slices, the epic was scoped wrong. Go back up; don't recurse down.
 - **Every slice records:** why now, the observable definition of done, exclusions (what it explicitly does not include), and cost proxies.
-- **Cost proxies, not time estimates:** how many PRs, whether it touches a migration, whether it touches a live production path. Agents are bad at wall-clock estimates, and the number gets planned against as if it were real.
+- **Cost proxies, not time estimates:** how many PRs (a slice over the size cap names its stack steps), whether it touches a migration, whether it touches a live production path. Agents are bad at wall-clock estimates, and the number gets planned against as if it were real.
 - **Give the plan a picture.** Draw a mermaid DAG: slices are nodes, dependencies are edges, and labels carry status and PR number.
 - **Every decision can end in "not now".** That outcome must be as cheap to reach as "yes".
 

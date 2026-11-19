@@ -23,7 +23,7 @@ Plugin skills are namespaced, so the skills below are invoked as `/mcstack:<name
 | Designer | skill `/mcstack:designer` | your session model | Mockups and UX ideas. Marks every contestable choice as a fork, with the case for the alternative |
 | Orchestrator | skill `/mcstack:orchestrate` | your session model | Takes approved slices to PRs that are ready to merge, using the subagents below |
 | Bug intake | skill `/mcstack:bug` | your session model | Takes a bug you describe, logs it as an issue, reads the code it touches, and runs it to a PR that is ready to merge |
-| Developer | agent `mcstack:developer` | Sonnet | Implements one slice as one PR. Adds nothing the brief didn't ask for |
+| Developer | agent `mcstack:developer` | Sonnet | Implements one slice as one PR, or a stack of PRs under 200 lines each. Adds nothing the brief didn't ask for |
 | Debugger | agent `mcstack:debugger` | Opus | Reproduces the bug, finds the root cause, writes a failing test, then fixes |
 | Reviewer | agent `mcstack:reviewer` | Opus | Tries to break the PR. Keeps only findings it can reproduce with a command |
 | Security reviewer | agent `mcstack:security-reviewer` | Opus | Covers auth, webhooks, injection, secrets and payments, with demonstrated findings only |
@@ -107,7 +107,7 @@ The skills and the orchestrator's dispatch briefs point at five short rules file
 - [`rules/planning.md`](rules/planning.md) covers the why-now test, the observable definition of done, specs as proposals, verifying against the repo, and two levels only.
 - [`rules/delivery.md`](rules/delivery.md) covers lean scope, vertical slices, verification, and never speaking as the user.
 - [`rules/engineering.md`](rules/engineering.md) covers the rules that hold in every project: ports-and-adapters architecture with dependencies pointing inward, reuse before writing, no new dependencies without asking, strict types, and validation at trust boundaries.
-- [`rules/pull-requests.md`](rules/pull-requests.md) covers how Developer and Debugger write a PR for human review: when to open one, the title, the body sections, and keeping it true after fix rounds.
+- [`rules/pull-requests.md`](rules/pull-requests.md) covers how Developer and Debugger write a PR for human review: when to open one, the 200-line cap and stacked PRs, the title, the body sections, and keeping it true after fix rounds.
 - [`rules/testing.md`](rules/testing.md) covers behaviour over implementation, mocks drifting from the real contract, and tests that can't fail.
 
 Project-specific conventions belong in each project's `CLAUDE.md`, not here.

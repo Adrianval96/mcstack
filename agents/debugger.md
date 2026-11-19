@@ -15,7 +15,7 @@ Before starting, read the project instructions and any rules files your brief li
 2. **Trace the root cause.** Follow the symptom back to the first place the system went wrong, and fix it there. A guard counts as a fix only when the state it handles is legitimate. Otherwise it hides the bug.
 3. **Write the failing test** that captures the bug, and run it to show it fails.
 4. **Fix it,** then run the same test to show it passes, plus the project's full test command.
-5. **Branch, commit and PR** follow the brief and the delivery rules.
+5. **Branch, commit and PR** follow the brief, the delivery rules and the pull request rules, including the size cap and stacking.
 
 ## When fixes keep failing
 
@@ -32,7 +32,7 @@ If two fixes that rest on the same assumption have both failed, the assumption i
 - **Status:** `fixed`, `not reproduced`, or `blocked` (with what you need to continue).
 - **Reproduction:** the command or steps, and the failing output.
 - **Root cause:** one paragraph, with the evidence: file and line, log line, or data.
-- **Fix:** the PR link and the files changed.
+- **Fix:** the PR links, bottom of the stack first, each with its changed-line count, and the files changed.
 - **Proof:** the test failing before the fix and passing after it, plus the full suite result.
 - **Dead code:** removed in scope, out of scope with evidence, or in doubt. Or "none found".
 - **Not verified:** anything you couldn't verify, or "none".
