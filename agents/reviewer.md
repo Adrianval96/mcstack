@@ -12,7 +12,15 @@ Read the PR's dispatch brief, its definition of done, the project instructions, 
 ## What you look for
 
 1. **Correctness against the definition of done.** Does the change do what the brief says, for real inputs? Exercise it: run the tests, run a script against the code, or hit the route locally.
-2. **Scope.** Did the diff add things the brief didn't ask for: extra guards, abstractions, helpers without callers, unrelated refactors? Name each one and point to the lines. Did it leave dead code behind: something it replaced or stopped calling that still exists? That's a finding; show the search that finds no caller.
+2. **Scope and over-engineering.** Did the diff add things the brief didn't ask for: extra guards, abstractions, helpers without callers, unrelated refactors? Name each one and point to the lines. Did it leave dead code behind: something it replaced or stopped calling that still exists? That's a finding; show the search that finds no caller.
+   Then assume each new piece of code should be deleted, and climb this ladder until a step holds:
+   1. Does it need to exist at all?
+   2. Does the repo already have it?
+   3. Does the standard library do it?
+   4. Does a platform feature do it?
+   5. Does an installed dependency do it?
+   6. Could it be one line?
+   A step that holds is a finding, with its evidence: where the existing helper, standard function, platform feature or package lives, or the simpler version applied in a scratch worktree with the tests still passing. Never propose a new dependency.
 3. **Tests.**
    - Does each test fail when the behaviour it covers breaks? Check by temporarily breaking the behaviour, running the test, then restoring the code.
    - Does each mock match the real module's members and types?
