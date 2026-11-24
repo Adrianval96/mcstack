@@ -32,6 +32,7 @@ Dead code is anything no running path reaches: unused exports, functions, types,
 
 - **Reuse before writing.** Search for an existing helper, type or pattern first. Re-implementing one that lives a few files away is a finding.
 - **No new dependency without the user's yes.** A few lines of code beat a package. Pin versions; never `latest` or `*`.
+- **Ship unreleased functionality behind a feature flag,** using the project's flag mechanism. That covers a new shop or section, a page nobody has tested yet, and anything whose launch is timed. A small addition that's ready the day it merges doesn't need one. Remove the flag once the feature launches; a flag stuck on one value is dead code.
 - **The simplest option that meets the definition of done.** No configuration for a value that never changes, and no code "for later".
 - **Strict types.** No `any` or untyped escape hatch unless it's truly unavoidable, and then with a comment saying why. Use generated types; don't redeclare them.
 - **Name every non-trivial shape.** A return type or parameter object with more than one field gets a named type, following the project's naming convention. Don't inline it in the signature.

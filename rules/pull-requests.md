@@ -17,7 +17,7 @@ These rules apply to Developer and Debugger when they open a PR, and to Reviewer
 **Plan the PRs before you write any code.** If the slice won't fit under the cap, it's still one dispatch: you build all of it in one pass, but deliver it as a stack of PRs.
 
 1. **Write the step plan first.** Each step is a thinner vertical slice of the same capability that works end to end on its own (see `delivery.md`): if only that step merges, the default branch is at least as good as before, and nothing that works today stops working or loses content. For example: an empty page at its route, then the gallery on it, then the frame numbering. Never split by layer.
-   Replacing something that works is different. If the replacement can't fit under the cap, build it behind the project's feature flag, off by default. The top step switches it on and deletes the old version and the flag. New functionality doesn't need a flag.
+   Replacing something that works is different. If the replacement can't fit under the cap, build it behind the project's feature flag, off by default. The top step switches it on and deletes the old version and the flag. New functionality follows the flag rule in `engineering.md`.
 2. **One branch per step,** each cut from the branch below it. Use the brief's branch name with a `-<n>` step suffix.
 3. **Open each PR on the branch below:** `gh pr create --base <branch below>`. The bottom PR targets the default branch.
 4. **If one step can't be split any thinner and still work end to end,** that one PR goes over the cap. Never split it by layer to get under. In How to review, say what the smallest working piece is and why nothing thinner works on its own.
