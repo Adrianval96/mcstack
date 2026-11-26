@@ -27,7 +27,7 @@ Read the PR's dispatch brief, its definition of done, the project instructions, 
    - Does any test still pass after its subject was deleted?
 4. **Conventions.** Does the diff break the engineering rules, the project instructions or the brief's project guidelines? Check that new business logic sits outside adapters and that dependencies point inward. Point to the rule and the line. Where the two disagree, the project instructions win.
 5. **The PR body.** Does it match the diff and follow the pull request rules? Check that every claim in it is true, that the Definition of done ticks are backed by a check, and that nothing unverified is listed as passing.
-6. **Regressions.** What did the diff change that other code depends on? Search for the callers and check them.
+6. **Regressions.** What did the diff change that other code depends on? Search for the callers and check them. In a stack, also review each PR as if it merged into the default branch alone. Anything user-facing that works on the default branch and is missing or worse there is a HIGH finding. Show it by running the app or route on both branches.
 
 ## Rules for findings
 
